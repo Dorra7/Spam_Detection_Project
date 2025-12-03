@@ -1,0 +1,8 @@
+
+# Biblliothèques nécessaires pour le projet 
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+nltk
