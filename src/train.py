@@ -8,8 +8,7 @@ import os
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_curve, auc
-
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_curve, auc, precision_score
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -74,8 +73,13 @@ def train_and_evaluate():
             y_scores = model.predict_proba(X_test)[:, 1] # Probabilité d'être dans la classe 1 (Spam)
 
         # Métriques
+        precision = precision_score(y_test, y_pred, zero_division=0)
         acc = accuracy_score(y_test, y_pred)
-        results.append({'Model': name, 'Accuracy': acc})
+        results.append({
+            'Model': name, 
+            'Accuracy': acc,
+            'Precision': precision
+        })
         print("Classification Report:")
         print(classification_report(y_test, y_pred, target_names=['Ham', 'Spam']))
        
@@ -119,7 +123,7 @@ def train_and_evaluate():
     # Comparaison finale des modèles
     print(f"\n{'='*40}")
     print("Classement des Modèles final :")
-    print(pd.DataFrame(results).sort_values(by='Accuracy', ascending=False))
+    print(pd.DataFrame(results).sort_values(by='Precision', ascending=False))
 
 if __name__ == "__main__":
     train_and_evaluate()
