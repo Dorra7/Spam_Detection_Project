@@ -34,7 +34,7 @@ spam_detection_project/
 
 Le traitement des données suit un pipeline séquentiel, implémenté dans le dossier `src/`.
 
-### 3.1 Prétraitement (Preprocessing)
+### 3.1 Prétraitement
 
 Le nettoyage des données textuelles comprend les étapes suivantes :
 
