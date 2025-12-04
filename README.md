@@ -97,7 +97,7 @@ python main.py
 
 À l'issue de l'exécution du script `main.py`, les livrables suivants sont générés automatiquement :
 
-- **Console :** Un tableau récapitulatif des scores d'Accuracy pour chaque modèle s'affiche dans le terminal.
+- **Console :** Un tableau récapitulatif des scores d'Accuracy et précision pour chaque modèle s'affiche dans le terminal.
 - **Graphiques (`reports/figures/`) :**
   - Matrices de confusion pour chaque modèle.
   - Courbes ROC avec calcul de l'AUC pour évaluer la discrimination.
